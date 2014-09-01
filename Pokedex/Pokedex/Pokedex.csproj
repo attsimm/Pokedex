@@ -118,6 +118,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\PokemonData.cs" />
+    <Compile Include="Pokemon\Constant.cs" />
+    <Compile Include="Pokemon\Pokemon.cs" />
+    <Compile Include="Pokemon\Pokemon_Colours.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -35,10 +35,11 @@
     }
 
     .pokemon_img_wrapper {
+        .ib-t;
         border-radius: 100%;
+        width: 215px;
         overflow: hidden;
         border: 1px solid #dadada;
-        width: 215px;
 
         .pokemon_img {
             border-radius: 100%;
@@ -46,7 +47,10 @@
     }
 
     .pokemon_information {
+        .ib-t;
+        width: 300px;
         margin: 10px 0;
+        padding: 20px;
 
         .pokemon_type {
             .pk_type {
@@ -57,7 +61,7 @@
                 text-transform: capitalize;
                 margin-right: 4px;
                 color: #fff;
-                text-shadow:1px 1px 3px #111;
+                text-shadow: 1px 1px 3px #111;
             }
 
             .pk_type_grass {
@@ -75,52 +79,64 @@
             .pk_type_flying {
                 .pk_type_custom_2colours(#3dc7ef,#bdb9b8,#1e7e9a);
             }
-            .pk_type_water{
+
+            .pk_type_water {
                 .pk_type_custom(#4592c4,#3177a4);
             }
-            .pk_type_bug{
+
+            .pk_type_bug {
                 .pk_type_custom(#729f3f,#517924);
             }
-            .pk_type_dragon{
+
+            .pk_type_dragon {
                 .pk_type_custom_2colours(#53a4cf,#f16e57,#226f98);
             }
-            .pk_type_ground{
+
+            .pk_type_ground {
                 .pk_type_custom_2colours(#f7de3f,#ab9842,#867528);
             }
-            .pk_type_fairy{
+
+            .pk_type_fairy {
                 .pk_type_custom(#fdb9e9,#d989c2);
             }
-            .pk_type_ghost{
+
+            .pk_type_ghost {
                 .pk_type_custom(#7b62a3,#4f3a70);
             }
-            .pk_type_normal{
+
+            .pk_type_normal {
                 .pk_type_custom(#a4acaf,#7d878b);
             }
-            .pk_type_psychic{
+
+            .pk_type_psychic {
                 .pk_type_custom(#f366b9,#bd488d);
             }
-            .pk_type_dark{
+
+            .pk_type_dark {
                 .pk_type_custom(#707070,#4f4f4f);
             }
-            .pk_type_electric{
+
+            .pk_type_electric {
                 .pk_type_custom(#eed535,#ac991f);
             }
-            .pk_type_fighting{
+
+            .pk_type_fighting {
                 .pk_type_custom(#d56723,#8a3e0f);
             }
-            .pk_type_ice{
+
+            .pk_type_ice {
                 .pk_type_custom(#51c4e7,#1e87a7);
             }
-            .pk_type_rock{
+
+            .pk_type_rock {
                 .pk_type_custom(#a38c21,#6c5b0d);
             }
-
-
         }
-        .pokemon_stats{
-            .pokemon_stat{
-                span{
-                    font-weight:700;
+
+        .pokemon_stats {
+            .pokemon_stat {
+                span {
+                    font-weight: 700;
                 }
             }
         }
@@ -138,7 +154,69 @@
 
     .pokemon_abilities {
     }
+
+    .pokemon_move {
+        table {
+            width: 100%;
+
+            tr:first-child {
+                border-width: 1px;
+                border-style: solid;
+            }
+
+            tr {
+                border-bottom: 1px solid;
+                th {
+                    color: #fff;
+                    text-shadow: 1px 1px 3px #111;
+                    padding:5px 10px;
+                }
+                td{
+                    padding:5px 10px;
+                }
+                .pk_move_name {
+                    width: 10%;
+                    vertical-align: middle;
+                }
+
+                .pk_move_stats {
+                    width: 20%;
+                    vertical-align: middle;
+                }
+
+                .pk_move_desc {
+                    width: 60%;
+                    vertical-align: middle;
+                }
+
+                .pk_move_learntype {
+                    width: 10%;
+                    vertical-align: middle;
+                }
+
+                .pk_move_level {
+                    vertical-align: middle;
+                    width: 10%;
+                }
+            }
+        }
+    }
 }
+
+.ib-t {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.ib-m {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
 .pk_type_custom(@primary, @border) {
     background: @primary;
     border: 1px solid @border;

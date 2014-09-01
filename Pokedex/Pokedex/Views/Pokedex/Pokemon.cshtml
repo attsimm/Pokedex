@@ -6,7 +6,9 @@
     <style>
         @for (int i = 0; i < Model.ColourScheme.HexColours.Count; i++)
         {
-            ViewBag.Style += ".pk_color_" + i + "{color:" + Model.ColourScheme.HexColours[i] + "};";
+            ViewBag.Style += ".pk_color_" + i + "{color:" + Model.ColourScheme.HexColours[i] + "}";
+            ViewBag.Style += ".pk_background_" + i + "{background:" + Model.ColourScheme.HexColours[i] + "}";
+            ViewBag.Style += ".pk_border_" + i + "{border-color:" + Model.ColourScheme.HexColours[i] + " !important}";
         }
 
         @ViewBag.Style
@@ -15,9 +17,10 @@
 <div class="container">
     <div class="row pokemon">
         <h1 class="pokemon_name">
-            @Model.Name <span class="pokemon_id">@Model.ID.ToString("000")</span>
+            @Model.Name
+            <span class="pokemon_id">@Model.ID.ToString("000")</span>
         </h1>
-        <div class="pokemon_img_wrapper">
+        <div class="pokemon_img_wrapper pk_border_8">
             <img class="pokemon_img" src="@Model.Image" alt="@Model.Name" />
         </div>
         <div class="pokemon_information">
@@ -34,16 +37,41 @@
                 <div class="pokemon_stat"><span>Special Defense :</span> @Model.Special_Defense</div>
                 <div class="pokemon_stat"><span>Speed :</span> @Model.Speed</div>
                 <div class="pokemon_stat"><span>HP :</span> @Model.HP</div>
-                
+                <div class="pokemon_stat"><span>Height :</span> @Model.Height</div>
+                <div class="pokemon_stat"><span>Weight :</span> @Model.Weight</div>
             </div>
         </div>
-        <div class="pokemon_colour_scheme">
-            @foreach (var colour in Model.ColourScheme.HexColours)
-            {
-                <div class="pokemon_colour" style="background:@colour">@colour</div>
-            }
+        <hr class="pk_border_3" />
+        <div class="pokemon_move">
+            <table>
+                <tr class="pk_background_1 pk_border_4">
+                    <th>Move</th>
+                    <th>Move stats</th>
+                    <th>Description</th>
+                    <th>Level</th>
+                </tr>
+                @foreach (var move in Model.Moves.OrderBy(m => m.Level))
+                {
+                    <tr class="pk_border_4">
+                        <td class="pk_move_name">@move.Name</td>
+                        <td class="pk_move_stats">
+                            <p><label>Accuracy :</label><span class="ib-t">@move.Accuracy</span></p>
+                            <p><label>Power :</label><span class="ib-t">@move.Power</span></p>
+                            <p><label>PP :</label><span class="ib-t">@move.PP</span></p>
+                        </td>
+                        <td class="pk_move_desc"><p>@move.Description</p></td>
+                        <td class="pk_move_level">@move.Level</td>
+                    </tr>
+                }
+            </table>
         </div>
         <div class="pokemon_abilities">
+            <ul>
+                @foreach (var ability in Model.Abilities)
+                {
+                    <li>@ability</li>
+                }
+            </ul>
 
         </div>
         <code>
@@ -51,5 +79,11 @@
                 @Model.Json
             </pre>
         </code>
+        <div class="pokemon_colour_scheme">
+            @foreach (var colour in Model.ColourScheme.HexColours)
+            {
+                <div class="pokemon_colour" style="background:@colour">@colour</div>
+            }
+        </div>
     </div>
 </div>

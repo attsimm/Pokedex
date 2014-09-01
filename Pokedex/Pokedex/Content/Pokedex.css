@@ -22,16 +22,22 @@
   content: '#';
 }
 .pokemon .pokemon_img_wrapper {
+  display: inline-block;
+  vertical-align: top;
   border-radius: 100%;
+  width: 215px;
   overflow: hidden;
   border: 1px solid #dadada;
-  width: 215px;
 }
 .pokemon .pokemon_img_wrapper .pokemon_img {
   border-radius: 100%;
 }
 .pokemon .pokemon_information {
+  display: inline-block;
+  vertical-align: top;
+  width: 300px;
   margin: 10px 0;
+  padding: 20px;
 }
 .pokemon .pokemon_information .pokemon_type .pk_type {
   display: inline-block;
@@ -152,4 +158,53 @@
   border-radius: 2px;
   font-size: 0.9em;
   color: #fff;
+}
+.pokemon .pokemon_move table {
+  width: 100%;
+}
+.pokemon .pokemon_move table tr:first-child {
+  border-width: 1px;
+  border-style: solid;
+}
+.pokemon .pokemon_move table tr {
+  border-bottom: 1px solid;
+}
+.pokemon .pokemon_move table tr th {
+  color: #fff;
+  text-shadow: 1px 1px 3px #111;
+  padding: 5px 10px;
+}
+.pokemon .pokemon_move table tr td {
+  padding: 5px 10px;
+}
+.pokemon .pokemon_move table tr .pk_move_name {
+  width: 10%;
+  vertical-align: middle;
+}
+.pokemon .pokemon_move table tr .pk_move_stats {
+  width: 20%;
+  vertical-align: middle;
+}
+.pokemon .pokemon_move table tr .pk_move_desc {
+  width: 60%;
+  vertical-align: middle;
+}
+.pokemon .pokemon_move table tr .pk_move_learntype {
+  width: 10%;
+  vertical-align: middle;
+}
+.pokemon .pokemon_move table tr .pk_move_level {
+  vertical-align: middle;
+  width: 10%;
+}
+.ib-t {
+  display: inline-block;
+  vertical-align: top;
+}
+.ib-m {
+  display: inline-block;
+  vertical-align: middle;
+}
+.capitalize {
+  text-transform: capitalize;
 }
