@@ -1,0 +1,55 @@
+﻿@model Pokedex.Models.PokemonData
+@{
+    ViewBag.Title = Model.Name;
+}
+@section Css{
+    <style>
+        @for (int i = 0; i < Model.ColourScheme.HexColours.Count; i++)
+        {
+            ViewBag.Style += ".pk_color_" + i + "{color:" + Model.ColourScheme.HexColours[i] + "};";
+        }
+
+        @ViewBag.Style
+    </style>
+}
+<div class="container">
+    <div class="row pokemon">
+        <h1 class="pokemon_name">
+            @Model.Name <span class="pokemon_id">@Model.ID.ToString("000")</span>
+        </h1>
+        <div class="pokemon_img_wrapper">
+            <img class="pokemon_img" src="@Model.Image" alt="@Model.Name" />
+        </div>
+        <div class="pokemon_information">
+            <div class="pokemon_type">
+                @foreach (var type in Model.Type)
+                {
+                    <div class="pk_type pk_type_@type">@type</div>
+                }
+            </div>
+            <div class="pokemon_stats">
+                <div class="pokemon_stat"><span>Attack :</span> @Model.Attack</div>
+                <div class="pokemon_stat"><span>Defense :</span> @Model.Defense</div>
+                <div class="pokemon_stat"><span>Special Attack :</span> @Model.Special_Attack</div>
+                <div class="pokemon_stat"><span>Special Defense :</span> @Model.Special_Defense</div>
+                <div class="pokemon_stat"><span>Speed :</span> @Model.Speed</div>
+                <div class="pokemon_stat"><span>HP :</span> @Model.HP</div>
+                
+            </div>
+        </div>
+        <div class="pokemon_colour_scheme">
+            @foreach (var colour in Model.ColourScheme.HexColours)
+            {
+                <div class="pokemon_colour" style="background:@colour">@colour</div>
+            }
+        </div>
+        <div class="pokemon_abilities">
+
+        </div>
+        <code>
+            <pre>
+                @Model.Json
+            </pre>
+        </code>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+﻿@model List<Pokedex.Models.PokemonData>
+@{
+    ViewBag.Title = "Index";
+}
+
+<ul class="pokedex_list">
+    @foreach (var pokemon in Model)
+    {
+        <li><a href="@Href("~/Pokedex/Pokemon/" + pokemon.ID + "/" + pokemon.Name)">@pokemon.Name</a></li>
+    }
+</ul>
